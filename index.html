@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shares</title>
+  <!-- What the iPhone home screen uses: the icon and the name under it. -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Shares">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1F6F78">
+  <script>
+    // The Share Recommender app on Streamlit Community Cloud.
+    var APP_URL = "https://REPLACE-WITH-YOUR-APP.streamlit.app";
+
+    // Opened with ?setup: stay on this page so "Add to Home Screen" saves this page (and its
+    // icon) rather than the app. Drop ?setup from the address first, so the shortcut it saves
+    // is the plain address, which goes straight to the app.
+    if (new URLSearchParams(location.search).has("setup")) {
+      history.replaceState(null, "", location.pathname);
+    } else {
+      location.replace(APP_URL);
+    }
+  </script>
+  <style>
+    :root { color-scheme: light dark; --bg: #FBFAF7; --text: #1E2A2E; --muted: #59666D;
+            --teal: #1F6F78; --on-teal: #FFFFFF; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #111719; --text: #E5ECEA; --muted: #9AA9AE; --teal: #5DB8B3;
+              --on-teal: #0D1B1C; }
+    }
+    body { margin: 0; padding: 40px 16px; background: var(--bg); color: var(--text);
+           font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 420px; margin: 0 auto; text-align: center; }
+    img { width: 96px; height: 96px; border-radius: 22px; }
+    h1 { font-size: 1.6rem; margin: 16px 0 8px; }
+    p { color: var(--muted); margin: 0 0 16px; }
+    ol { text-align: left; margin: 24px 0; padding-left: 1.4em; }
+    li { margin-bottom: 8px; }
+    a.button { display: inline-block; min-height: 44px; line-height: 44px; padding: 0 24px;
+               border-radius: 10px; background: var(--teal); color: var(--on-teal);
+               text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="apple-touch-icon.png" alt="">
+    <h1>Shares</h1>
+    <p>Put Share Recommender on your home screen with this icon.</p>
+    <ol>
+      <li>Tap the <strong>Share</strong> button (the square with an arrow pointing up).</li>
+      <li>Tap <strong>Add to Home Screen</strong>, then <strong>Add</strong>.</li>
+      <li>Open it from your home screen: it goes straight to the app.</li>
+    </ol>
+    <a class="button" id="open" href="#">Open the app now</a>
+  </main>
+  <script>document.getElementById("open").href = APP_URL;</script>
+</body>
+</html>
