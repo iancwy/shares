@@ -10,8 +10,10 @@
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#1F6F78">
   <script>
-    // The Share Recommender app on Streamlit Community Cloud.
-    var APP_URL = "https://familynest.streamlit.app";
+    // The Share Recommender app on Streamlit Community Cloud. /~/+/ is the app itself, without
+    // Cloud's wrapper page (its badges and the blank strip below the app on a phone). If the app
+    // is asleep, wake it from https://familynest.streamlit.app first.
+    var APP_URL = "https://familynest.streamlit.app/~/+/";
 
     // Opened with ?setup: stay on this page so "Add to Home Screen" saves this page (and its
     // icon) rather than the app. Drop ?setup from the address first, so the shortcut it saves
